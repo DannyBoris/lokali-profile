@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import EditProfile from "./EditProfile";
+import Profile from "./Profile";
 
 function App() {
+  const [editMode, setEditMode] = useState(true);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {editMode ? (
+        <EditProfile setEditMode={setEditMode} />
+      ) : (
+        <Profile setEditMode={setEditMode} />
+      )}
     </div>
   );
 }
